@@ -1,1 +1,2 @@
-echo "Hello World"
+echo "Running post-commit hook"
+npx sanity deploy
