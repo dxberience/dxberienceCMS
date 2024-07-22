@@ -12,6 +12,11 @@
     "deploy-graphql": "sanity graphql deploy",
     "prepare": "husky"
   },
+  "husky": {
+    "hooks": {
+      "post-commit": "echo 'Running post-commit hook...' && npx sanity deploy"
+    }
+  },
   "keywords": [
     "sanity"
   ],
