@@ -1,1 +1,1 @@
-npx sanity deploy
+npm sanity deploy
