@@ -49,6 +49,7 @@ export default defineType({
       to: [{type: 'subCategory'}],
       title: 'Sub Category',
       description: 'Sub category of the activity, experience or event',
+      validation: (Rule) => Rule.required(),
     }),
 
     defineField({
@@ -58,7 +59,6 @@ export default defineType({
       to: [{type: 'category'}], // Reference to the 'category' type
       description:
         'Select the category this product belongs to. Only fill if the activity, experience or event does not have a sub category (Optional)',
-      validation: (Rule) => Rule.required(),
     }),
 
     defineField({
