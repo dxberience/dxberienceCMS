@@ -45,19 +45,20 @@ export default defineType({
 
     defineField({
       name: 'subCategory',
-      type: 'array',
-      of: [{type: 'reference', to: [{type: 'subCategory'}]}],
+      type: 'reference',
+      to: [{type: 'subCategory'}],
       title: 'Sub Category',
       description: 'Sub category of the activity, experience or event',
     }),
 
     defineField({
       name: 'category',
-      type: 'array',
-      of: [{type: 'reference', to: [{type: 'category'}]}],
+      type: 'reference', // Singular reference
       title: 'Category',
+      to: [{type: 'category'}], // Reference to the 'category' type
       description:
-        'Only fill if the activity, experience or event does not have a sub category (Optional)',
+        'Select the category this product belongs to. Only fill if the activity, experience or event does not have a sub category (Optional)',
+      validation: (Rule) => Rule.required(),
     }),
 
     defineField({
