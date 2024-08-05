@@ -17,6 +17,15 @@ export default defineType({
       title: 'Slug',
       options: {source: 'name'},
     }),
+
+    defineField({
+      name: 'category',
+      type: 'reference',
+      to: [{type: 'category'}],
+      title: 'Category',
+      description:
+        'Category of the sub category (This is mandatory and needs to be filled accurately as the accuracy of the search depends on this)',
+    }),
     defineField({name: 'image', type: 'image-type', title: 'Image', options: {hotspot: true}}),
   ],
 })
