@@ -6,6 +6,6 @@ export default defineType({
   title: 'Image',
   fields: [
     defineField({name: 'image', type: 'image', title: 'Image', options: {hotspot: true}}),
-    defineField({name: 'alt', type: 'string', title: 'Alt Text'}),
+    defineField({name: 'alt', type: 'string', title: 'Alt Text', validation: (Rule) => Rule.required(),}),
   ],
 })

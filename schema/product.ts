@@ -89,7 +89,14 @@ export default defineType({
       name: 'price',
       type: 'number',
       title: 'Price',
-      description: 'Price of the activity, experience or event if available',
+      description: 'Price of the activity, experience or event if available. NOTE: If the customer needs to request for price, leave this field blank',
+    }),
+
+    defineField({
+      name: 'priceRate',
+      type: 'string',
+      title: 'Price Rate',
+      description: 'Rate at which the activity, experience or event is charged (e.g PER DAY, PER PERSON etc.)',
     }),
 
     defineField({
