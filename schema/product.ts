@@ -96,7 +96,7 @@ export default defineType({
       name: 'priceRate',
       type: 'string',
       title: 'Price Rate',
-      description: 'Rate at which the activity, experience or event is charged (e.g PER DAY, PER PERSON etc.)',
+      description: 'Rate at which the activity, experience or event is charged (e.g PER DAY, PER PERSON, etc.)',
     }),
 
     defineField({
