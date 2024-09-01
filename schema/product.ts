@@ -49,7 +49,6 @@ export default defineType({
       to: [{type: 'subCategory'}],
       title: 'Sub Category',
       description: 'Sub category of the activity, experience or event',
-      validation: (Rule) => Rule.required(),
     }),
 
     defineField({
