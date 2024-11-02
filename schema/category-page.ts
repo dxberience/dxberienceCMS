@@ -21,7 +21,7 @@ export default defineType({
     defineField({
       name: 'headerBgImg',
       type: 'reference',
-      title: 'Header Background Image',
+      title: 'Header Background Image', 
       to: [{type: 'image-type'}],
     }),
     defineField({
