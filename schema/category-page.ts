@@ -6,6 +6,13 @@ export default defineType({
   title: 'Category Page',
   fields: [
     defineField({
+      name: 'name',
+      type: 'reference',
+      title: 'Category Name',
+      to: [{ type: "category"}],
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'headerImg',
       type: 'reference',
       title: 'Header Image',
@@ -15,44 +22,54 @@ export default defineType({
       name: 'headerBgImg',
       type: 'reference',
       title: 'Header Background Image',
-      to: [{type: 'image'}],
+      to: [{type: 'image-type'}],
     }),
-    defineField({name: 'headerTitle', type: 'string', title: 'Header Title'}),
-    defineField({name: 'headerCaption', type: 'string', title: 'Header Caption'}),
-    defineField({name: 'sectionATitle', type: 'string', title: 'Section A Title'}),
-    defineField({name: 'sectionADescription', type: 'text', title: 'Section A Description'}),
+    defineField({
+      name: 'headerTitle', type: 'string', title: 'Header Title',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({name: 'headerCaption', type: 'string', title: 'Header Caption', validation: (Rule) => Rule.required(),}),
+    defineField({name: 'sectionATitle', type: 'string', title: 'Section A Title', validation: (Rule) => Rule.required(),}),
+    defineField({name: 'sectionADescription', type: 'text', title: 'Section A Description', validation: (Rule) => Rule.required(),}),
     defineField({
       name: 'sectionAImage',
       type: 'reference',
       title: 'Section A Image',
-      to: [{type: 'image'}],
+      to: [{type: 'image-type'}],
+      validation: (Rule) => Rule.required(),
     }),
-    defineField({name: 'sectionBHeader', type: 'string', title: 'Section B Header'}),
-    defineField({
-      name: 'sectionBSubCategories',
-      type: 'array',
-      title: 'Section B Sub Categories',
-      of: [{type: 'reference', to: [{type: 'category'}]}],
-    }),
-    defineField({name: 'sectionCHeader', type: 'string', title: 'Section C Header'}),
-    defineField({name: 'sectionCDescription', type: 'text', title: 'Section C Description'}),
+    defineField({name: 'sectionBHeader', type: 'string', title: 'Section B Header', validation: (Rule) => Rule.required(),}),
+    defineField({name: 'sectionCHeader', type: 'string', title: 'Section C Header', validation: (Rule) => Rule.required(),}),
+    defineField({name: 'sectionCDescription', type: 'text', title: 'Section C Description', validation: (Rule) => Rule.required(),}),
     defineField({
       name: 'sectionCVideo',
-      type: 'reference',
+      type: 'string',
       title: 'Section C Video',
-      to: [{type: 'image'}],
+      validation: (Rule) => Rule.custom((video) => {
+        if(!video) {
+          return 'Video is required'
+        }
+
+        const videoRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be|twitch\.tv|facebook\.com|instagram\.com|fb\.watch|tiktok\.com|twitter\.com|linkedin\.com|vimeo\.com)\/[^\s]*$/
+        if(!videoRegex.test(video)) {
+          return 'Invalid video URL'
+        }
+
+        return true;
+      }),
+    }),
+    defineField({
+      name: 'sectionCVideoThumbnail',
+      type: 'reference',
+      title: 'Section C Video Thumbnail',
+      to: [{type: 'image-type'}],
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'sectionDReviews',
       type: 'array',
       title: 'Section D Reviews',
       of: [{type: 'reference', to: [{type: 'review'}]}],
-    }),
-    defineField({
-      name: 'sectionDBgImg',
-      type: 'reference',
-      title: 'Section D Background Image',
-      to: [{type: 'image'}],
     }),
   ],
 })

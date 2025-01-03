@@ -4,5 +4,7 @@ import product from './product'
 import subCategory from './subCategory'
 import review from './review'
 import interest from './interest'
+import categoryPage from './category-page'
+import legal from './legal'
 
-export const schemaTypes = [category, subCategory, imageType, product, interest, review]
+export const schemaTypes = [category, subCategory, imageType, product, interest, review, categoryPage, legal]
