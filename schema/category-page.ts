@@ -43,9 +43,20 @@ export default defineType({
     defineField({name: 'sectionCDescription', type: 'text', title: 'Section C Description', validation: (Rule) => Rule.required(),}),
     defineField({
       name: 'sectionCVideo',
-      type: 'reference',
+      type: 'string',
       title: 'Section C Video',
-      to: [{type: 'image-type'}],
+      validation: (Rule) => Rule.custom((video) => {
+        if(!video) {
+          return 'Video is required'
+        }
+
+        const videoRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be|twitch\.tv|facebook\.com|instagram\.com|fb\.watch|tiktok\.com|twitter\.com|linkedin\.com|vimeo\.com)\/[^\s]*$/
+        if(!videoRegex.test(video)) {
+          return 'Invalid video URL'
+        }
+
+        return true;
+      }),
     }),
     defineField({
       name: 'sectionCVideoThumbnail',
