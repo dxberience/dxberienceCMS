@@ -73,12 +73,19 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'price',
-      type: 'number',
-      title: 'Price',
-      description: 'Price of the vessel',
+      title: 'prices',
+      name: 'prices',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {name: 'price', type: 'number', title: 'Price'},
+            {name: 'type', type: 'string', title: 'type'},
+          ],
+        },
+      ],
     }),
-
     defineField({
       name: 'cabins',
       type: 'number',
