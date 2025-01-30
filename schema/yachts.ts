@@ -21,10 +21,24 @@ export default defineType({
     }),
 
     defineField({
+      name: 'mainDescription',
+      type: 'text',
+      title: 'Main Description',
+      description: 'Main description of the yacht',
+    }),
+
+    defineField({
       name: 'shortDescription',
       type: 'text',
       title: 'Short Description',
       description: 'Short description of the yacht',
+    }),
+
+    defineField({
+      name: 'moreDetailsTitle',
+      type: 'string',
+      title: 'More Details Title',
+      description: 'Title for the more details section',
     }),
 
     defineField({
