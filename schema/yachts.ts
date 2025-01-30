@@ -93,7 +93,13 @@ export default defineType({
       description: 'Number of cabins in the vessel',
     }),
 
-    defineField({name: 'image', type: 'image-type', title: 'Image', options: {hotspot: true}}),
+    defineField({
+      name: 'thumbnail',
+      type: 'image-type',
+      title: 'Thumbnail',
+      options: {hotspot: true},
+      validation: (Rule) => Rule.required(),
+    }),
     defineField({
       name: 'gallery',
       type: 'array',
