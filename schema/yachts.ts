@@ -42,6 +42,13 @@ export default defineType({
     }),
 
     defineField({
+      name: 'builder',
+      type: 'string',
+      title: 'Builder',
+      description: 'Builder of the yacht (name of the company)',
+    }),
+
+    defineField({
       name: 'moreDetails',
       type: 'text',
       title: 'More Details',
