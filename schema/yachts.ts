@@ -35,6 +35,13 @@ export default defineType({
     }),
 
     defineField({
+      name: 'formDescription',
+      type: 'text',
+      title: 'Form Description',
+      description: 'Description of the Yacht shown on the booking form',
+    }),
+
+    defineField({
       name: 'moreDetailsTitle',
       type: 'string',
       title: 'More Details Title',
