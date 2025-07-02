@@ -27,14 +27,14 @@ export default defineType({
       description: 'A Short description of the activity, experience or event on the details page',
     }),
 
-    defineField({
+   defineField({
       name: 'thumbnail',
       type: 'image-type',
       title: 'Thumbnail',
       options: {hotspot: true},
       description: 'Display Image of the activity, experience or event on the explore page',
     }),
-
+    
     defineField({
       name: 'gallery',
       type: 'array',
@@ -89,6 +89,13 @@ export default defineType({
       type: 'number',
       title: 'Price',
       description: 'Price of the activity, experience or event if available. NOTE: If the customer needs to request for price, leave this field blank',
+    }),
+
+    defineField({
+      name: 'priceRange',
+      type: 'string',
+      title: 'Price Range',
+      description: 'Price range of the activity, experience or event (e.g. "$100 - $500", "From $200"). Use this when there are multiple pricing tiers or variable pricing.',
     }),
 
     defineField({
