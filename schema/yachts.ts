@@ -121,5 +121,10 @@ export default defineType({
       of: [{type: 'reference', to: [{type: 'image-type'}]}],
       description: 'Gallery of images of the yacht',
     }),
+    defineField({
+      name: 'vendor',
+      type: 'string',
+      title: 'Vendor',
+    }),
   ],
 })
